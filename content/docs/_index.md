@@ -1,18 +1,5 @@
 ---
-title: Documentation
-next: first-page
+title: Docs
 ---
 
-This is a demo of the theme's documentation layout.
-
-## Hello, World!
-
-```go {filename="main.go"}
-package main
-
-import "fmt"
-
-func main() {
-    fmt.Println("Hello, World!")
-}
-```
+This is the place for documentation about various projects, please check the sidebar to read about different projects. 

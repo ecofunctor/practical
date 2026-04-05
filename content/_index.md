@@ -1,17 +1,21 @@
 ---
-title: My Site
+title: 
 toc: false
 ---
 
-This is the landing page.
+As the sister project of [ecofunctor](https://www.ecofunctor.com), this site aims to apply the theories and principles of the ecofunctor project to practical things:
+- architecture and design
+- electronics
+- software, hardware and machines
+- coffee shop, restaurants, and places for social gathering
 
 ## Explore
 
 {{< cards >}}
   {{< card link="docs" title="Docs" icon="book-open" >}}
-  {{< card link="about" title="About" icon="user" >}}
 {{< /cards >}}
 
-## Documentation
+## More
 
-For more information, visit [Hextra](https://imfing.github.io/hextra).
+
+This site is built with hugo and the theme is based on [Hextra](https://imfing.github.io/hextra).
