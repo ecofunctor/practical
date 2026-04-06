@@ -54,5 +54,7 @@ Espruino can be understood as a JavaScript version of Arduino, as it supports a 
 We mainly focus on typescript and VSCode at (https://www.espruino.com/Typescript+and+Visual+Studio+Code+IDE), although the official Espruino IDE is provided. The [types for Espruino](https://www.npmjs.com/package/@types/espruino) can also be used by Scala.js.
 
 
+A interesting feature in [FAQ](https://www.espruino.com/FAQ) is that `delay()` is discouraged, and call back functions in `setTimeout()` are preferred, which is common in software development, but not so common in embedded systems.
+
 ### Display
 [OLED with SSD1306 driver](https://www.espruino.com/SSD1306)
