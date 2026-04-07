@@ -31,13 +31,22 @@ overall features:
 - the display at the station shows the arrival time of the next train, the current time, etc.
 - the display of the control center shows the real time location of the train, the speed, the schedule, etc.
 
-the 
 
-## line 1 intercontinental express
-The line 1 (L1) intercontinental express is the first line of the eco train model series, connecting south cities in China to cities in North Europe. The train is powered by electricity, and the engine is a turbojet engine, unlike the traditional wheel-based locomotive. 
+
+## schedule
+**express 1 intercontinental express**
+
+The express 1 (E1) intercontinental express is the first line of the eco train model series, connecting south cities in China to cities in North Europe. The train is powered by electricity, and the engine is a turbojet engine, unlike the traditional wheel-based locomotive. 
 
 Stops along the line: 
 
 Shenzhen, China-> Beijing, China -> Copenhagen, Denmark -> Oslo, Norway
 
-The locomotive of the L1 line is also the first prototype of the eco train model series, which is highly experimental, featuring a streamlined design and strong metalic body. The train has an outside 128*32 OLED display, showing the line name, the departure and terminal stations, and the next station. 
+The locomotive of the E1 line is also the first prototype of the eco train model series, which is highly experimental, featuring a streamlined design and strong metalic body. The train has an outside 128*32 OLED display, showing the line name, the departure and terminal stations, and the next station. 
+
+**line 1 local line**
+The line 1 (L1) local line is the second line of the series, connecting several local stations in the **Ecocity**. The train is powered by electricity, and the engine is a normal wheel-based locomotive, with a more traditional design. The train also has an outside 128*32 OLED display.
+
+Stops along the line:
+
+Sydstrand -> Central -> OstTech -> NordSocial -> Airport

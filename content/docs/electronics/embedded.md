@@ -41,8 +41,16 @@ Examples for blinking, uart, etc can be found at
 - OLED, EEPROM,etc: [sduino API](https://tenbaht.github.io/sduino/api/Mini_SSD1306/)
 
 ## ESP32 with Arduino
+ESP32 is popular for IoT applications with WIFI and Bluetooth, so a common use case is to build a web server on ESP32, where convenient libraries are provided for easy development with WIFI. 
+
+
+A web server serving static files from SPIFFS: [ESP32 Web Server SPIFFS](https://randomnerdtutorials.com/esp32-web-server-spiffs-spi-flash-file-system/)
 
 ## ESP32 with JVM
+This requires FlintESPJVM, a JVM implementation for ESP32, providing hardware access like GPIO in Java. To start efficiently, we will use Scala and VsCode. The steps are as follows:
+- create a new Scala sbt project, and add the sdk as a local library dependency.
+- write code in Scala, by looking at the [Java examples]()
+- run the command to compile and flash the code and FlintESPJVM to the ESP32 board.
 
 ## ESP32 with JavaScript
 To run JavaScript on ESP32, we can use Espruino, which is a JavaScript interpreter, as quoted from their website:
