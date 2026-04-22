@@ -1,5 +1,5 @@
 ---
-title: Embedded Systems
+title: Embedded development
 type: docs
 ---
 
@@ -94,7 +94,10 @@ Examples for blinking, uart, etc can be found at
 ## ESP32/STM32 with Arduino
 ESP32 and STM32 are popular and powerful 32-bit microcontrollers, with good support for Arduino. 
 
-ESP32 is popular for IoT applications with WIFI and Bluetooth, so a common use case is to build a web server on ESP32, where convenient libraries are provided for easy development with WIFI. 
+ESP32 is popular for IoT applications with WIFI and Bluetooth, so a common use case is to build a web server on ESP32, where convenient libraries are provided for easy development with WIFI.
+
+main references:
+- [ESP32 Arduino API](https://espressif-docs.readthedocs-hosted.com/projects/arduino-esp32/en/latest/index.html)
 
 
 A web server serving static files from SPIFFS: [ESP32 Web Server SPIFFS](https://randomnerdtutorials.com/esp32-web-server-spiffs-spi-flash-file-system/)
@@ -138,3 +141,4 @@ common issues and troubleshooting:
 
 common pitfalls:
 - writing to the same GPIO pin from multiple tasks. For example, one of ESP32's GPIO pins is connected to both an LED and a OLED display.
+- some GPIO pins can't be used for certain functions, when WiFI is enabled.
