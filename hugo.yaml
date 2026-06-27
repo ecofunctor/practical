@@ -21,6 +21,9 @@ menu:
     - name: Docs
       pageRef: /docs
       weight: 1
+    - name: Theoretical
+      url: "https://www.ecofunctor.com/"
+      weight: 2
     - name: Search
       weight: 4
       params:
