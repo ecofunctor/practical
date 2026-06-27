@@ -11,6 +11,7 @@ This is where people gather, eat, drink, and talk. It is a place for socializing
 - low cost decorations. 
 - high hygiene standards.
 - local supply chain
+- automate things as much as possible, with machines and information system, to reduce repetitive work.
 
 ## ingredients
 The ingredients shall be simple to process, and not easy to go bad.
@@ -54,12 +55,21 @@ For sweeters, we can provide beans like green beans, red beans, and mung beans, 
 As the drinks and sweets are self served or half self served, the staff can focus on the food, the hygiene, and talking with customers for good atmosphere.
 
 ## information system
-Aiming to be transparent and informative, the information system can display the ingredients, recipes, and supply chain of the food and drinks, as well as the schedule of the day, and also some interesting facts about food and drinks.
 
+The public information display:
+Aiming to be transparent and informative, the information system can display the ingredients, recipes, and supply chain of the food and drinks, as well as the schedule of the day, and also some interesting facts about food and drinks:
+- the ingredients and recipes of the day
+- current available dishes and drinks
+- the supply chain of the ingredients
+
+The internal information system:
+The internal information system can help the staff to manage the inventory, the schedule, and the customer
 ## decorations
 The decorations shall be simple, low cost, and easy to clean. 
 
-## equipment
+## automation and equipment
 - electromagnetic stove
 - rice cooker
 - water boiler
+- dish washer
+- automatic vegetable cutter
