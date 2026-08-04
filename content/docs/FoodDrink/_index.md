@@ -7,6 +7,7 @@ sidebar:
 
 This is where people gather, eat, drink, and talk. It is a place for socializing, sharing ideas, and enjoying healthy food and drinks:
 - transparent ingredients and supply chain
+- organic agriculture
 - simple and fresh food, no luxury, no over-processing.
 - low cost decorations. 
 - high hygiene standards.
@@ -64,8 +65,11 @@ Aiming to be transparent and informative, the information system can display the
 
 The internal information system:
 The internal information system can help the staff to manage the inventory, the schedule, and the customer
+
 ## decorations
 The decorations shall be simple, low cost, and easy to clean. 
+Examples in Shenzhen:
+- Calm corner coffee, provides professional SOE coffee with low price, and the style is Nordic anarchism: simple processing of old wall, concrete is exposed, and the furniture is based on raw wood and metal, the kitchen is open. The tolets have delicate details.
 
 ## automation and equipment
 - electromagnetic stove
