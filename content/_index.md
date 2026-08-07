@@ -3,7 +3,7 @@ title:
 toc: false
 ---
 
-As the sister project of [ecofunctor](https://www.ecofunctor.com), this site aims to apply the theories and principles of the ecofunctor project to practical things, as an alternative to the capitalist approach:
+As the sister project of [ecofunctor](https://www.ecofunctor.com), this site aims to apply the theories and principles of the ecofunctor project, as an alternative to the capitalist approach as a living experiment, rather than just a new critique literature, by doing some practical works of human life:
 - architecture and design
 - organic agriculture
 - electronics
