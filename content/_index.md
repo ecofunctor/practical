@@ -3,12 +3,15 @@ title:
 toc: false
 ---
 
-As the sister project of [ecofunctor](https://www.ecofunctor.com), this site aims to apply the theories and principles of the ecofunctor project, as an alternative to the capitalist approach as a living experiment, rather than just a new critique literature, by doing some practical works of human life:
+As the sister project of [ecofunctor](https://www.ecofunctor.com), this project aims to apply the theories to build a cooperative like community
+, as an alternative to the capitalist model. As a living experiment, it's constructive, rather than just another work of critique. It focuses on practical aspects of human life:
 - architecture and design
 - organic agriculture
 - electronics
 - software, hardware and machines
 - coffee shop, restaurants, and places for social gathering
+
+Money, as the new religion, claims to solve all problems, but instead it shadows the real problems, shadows the anxiety, depression caused by the problems, and we still have to face the problems from live to death. This project takes a direct approach, rather than factor everything through money, or it's equivalent.
 
 Click the cards below to visit detailed pages:
 {{< cards >}}
@@ -21,6 +24,7 @@ To make it different from the capitalist approach, we have the following princip
 - transparent and documented: design, implementation, and business operations shall be documented and open to the public as much as possible
 - collective ownership: the profit and loss are keeped mutually or distributed to the members based on collective discussion
 - self-sufficient: the project shall not only focus on a small part specifically like electronics or software, etc, but aiming to expand to a complete system, including food, agriculture, so activities can happen inside this project.
+- internal economy: the project shall promote economic activities within the project. But as the products are not expensive and designed collectively, it's straightforward.
 
 ## More
 Visit the [ecofunctor](https://www.ecofunctor.com) site for philosophical/theoretical side.

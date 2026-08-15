@@ -21,9 +21,12 @@ There are also extra buttons on the touch display for sending some common prompt
 
 
 ## Configuration
+The keyboard is independent of software or IDE, whatever you use, like VSCode, Codex, as it's a generic Bluetooth keyboard, so it shall work with any software that can configure the key mapping/shortcuts.
+
 The keyboard can be configured through a web UI. The user can define the key mapping, knob functions, sleep timer, and other settings. The web UI can be accessed by connecting the keyboard to a computer and opening the IP address of the keyboard in a web browser. 
 
 To see the IP address of the keyboard, click the "Settings" button on the touch display. It will start a Wi-Fi hotspot. Connect to the hotspot and open the IP address shown on the touch display in a web browser. 
+
 
 ### recommended key mapping
 The recommended key mapping for vibe coding is as follows, for keys
@@ -37,6 +40,10 @@ knob functions:
 buttons on the touch display:
 - A button to extract the current selection into a new function
 - A button to improve and optimize the codebase.
+
+### Usage scenarios
+Launch specific apps, like browsers, IDEs, or other software, can be done by installing some software in the computer, and then mapping the keys like F13 to F24 for the specific applications. 
+
 
 ## Internal Design
 The keyboard is consists of:
