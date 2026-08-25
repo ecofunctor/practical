@@ -55,3 +55,22 @@ The keyboard is consists of:
 - 2x 18650 batteries to provide 3.7V power supply.
 - A 3D printed back case to hold all the components together. 
 - Aluminum front case.
+
+
+## changelog
+v0.0: initial testing, prototype is built with jumpers, capative touch display, pcf8574 expander, and knobs work:
+- testing module: esp32-c3 supermini
+- focus on lvgl and touch display
+- optimize the knob algorithm
+
+
+v0.1: initial release, PCB is designed and manufactured, but LCD connection is wrong. 
+
+
+v0.2: fixed the LCD connection, and everything works except wifi. io expander is upgraded to tca9535 with 16 GPIOs, as a test spot, so more native io can be used for battery level detection, and brightness control
+
+
+v0.3: dump esp32-c3 supermini module for esp32-c3-wroom, and wifi issue is fixed. The 10k pull-up resistor for the i2c bus is not working. required changes:
+- 4.7k pull-up resistors are needed for the i2c bus
+- pull-up resistor needed for touch display wakeup.
+- pcb size needs to be changed 
