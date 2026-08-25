@@ -16,7 +16,7 @@ For vocabulary building, the linking machine is mainly built on the idea of word
 Vocabulary building features:
 - phonics: showing the phonics of the word
 - synonyms and antonyms
-- example sentences
+- example sentences, and words in the sentences are also clickable.
 - wordnet: showing the wordnet of the word as the main view. it has 155,327 words.
 
 # Mathematics
