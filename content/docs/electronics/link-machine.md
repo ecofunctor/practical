@@ -9,6 +9,16 @@ For English learning, it aims at advanced learners, who already have a basic voc
 
 Physically, the linking machine is a small device with a eye friendly display, like reflective monochrome LCD, or E-ink, with capacitive touch screen, and a few knobs and buttons for navigation. 
 
+## physical design
+Main components in PCB:
+- mcu: esp32s3-wroom, and optional place for esp32-c3-wroom
+- display: 4.2 inch monochrome LCD with touch screen
+- storage: soldered flash and sdcard slot
+- input: a knob, 2 buttons
+- audio: output for earphone and speakers, and mic
+- power: usb-c for charging and power supply, and battery
+- extension: unused io pins are exposed via headers like 1.0mm/1.27mm pitch, and a few test points for debugging and flashing
+
 
 # English learning
 For vocabulary building, the linking machine is mainly built on the idea of wordnet, which is a graph of words, where each word is a node, and the edges connect the words with their synonyms, antonyms, and other relations. 
@@ -28,3 +38,11 @@ For mathematics, the linking machine may also uses the idea of graph, where each
 - functions
 - operations: addition, subtraction, multiplication, division, exponentiation
 - expressions: polynomials, rational expressions, trigonometric expressions, etc.
+
+# Other software
+The machine/tablet is open source, so users can flash whatever they want, like the Tac
+or use it like a development board, as it has exposed IO pins and a not too small touch screen, making it suitable for:
+- information display
+- control panel for other devices
+- (quasi) portable computer, like m5stack
+- retro style electronics like PDA, electronic dictionary, etc.
