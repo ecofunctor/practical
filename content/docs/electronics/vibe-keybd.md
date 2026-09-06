@@ -74,6 +74,8 @@ The software/firmware is written in C++ and based on mixed Arduino and ESP-IDF f
 
 ## changelog
 The project started in April 2026.
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/3d019927-8537-4f85-aece-7f75e1b3e1e2" />
+
 
 **v0.0:** initial testing, prototype is built with jumpers, capative touch display, pcf8574 expander, and knobs:
 - testing module: esp32-c3 supermini
@@ -89,6 +91,10 @@ The project started in April 2026.
 
 **v0.3:** dump esp32-c3 supermini module for esp32-c3-wroom, and wifi issue is fixed:
 - replaced esp32-c3 supermini with esp32-c3-wroom module for better wifi performance
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/5e58b2fd-64f4-4326-9d74-e437d6da4f56" />
+
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/c290362a-e092-4f8a-93a3-db270caa83bf" />
+
 
 we identified some issues:
 - 4.7k pull-up resistors are needed for the i2c bus
