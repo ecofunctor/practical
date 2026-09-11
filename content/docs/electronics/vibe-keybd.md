@@ -5,10 +5,9 @@ type: docs
 Vibe coding, as we dislike or like, has been unavoidable. Fully automatic agents burning electricity and money, working day and night, creating code beyond human understanding, or even sometimes, beyond AI themselves(as of summer 2026). Manual coding has since become a past, a luxury, and sometimes people call it "old school coding". Mixed feelings are constantly in conflict, as it enables us to create something beyond, but also destroys our own understanding, our control, our own creativity, and our struggles. 
 
 
-A balance shall be found, by using AI as a progressive tool, and extend human control to guide this probablistic machine.
+To find the balance, we shall use AI as a progressive tool, and provide tools for humans to better control this probablistic calculation machine. The Ecofunctor VK1 aims to achieve that. It is a small keyboard with a few keys,knobs, and a small capacitive touch display. Users setup their favorite prompts, and the keyboard helps them to quickly execute the prompts.
 
-
-The Ecofunctor VK1 aims to achieve this balance, makes it easier to control certain aspects of the AI coding process. It is a small keyboard with a few keys, rotary encoders(knobs), and a small capacitive touch display:
+The keyboard consists of:
 - 5 low profile mechanical keys
 - 2 rotary encoders(knobs) with clicks, suitable for forth and back navigation like previous/next, etc.
 - 6 buttons on the touch display for sending predefined prompts or commands

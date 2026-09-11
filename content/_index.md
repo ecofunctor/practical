@@ -26,6 +26,9 @@ To make it different from the capitalist approach, we have the following princip
 - self-sufficient: the project shall not only focus on a small part specifically like electronics or software, etc, but aiming to expand to a complete system, including food, agriculture, so activities can happen inside this project.
 - internal economy: the project shall promote economic activities within the project. But as the products are not expensive and designed collectively, it's straightforward.
 
+## Online community
+Let's chat on [discord](https://discord.gg/HUQMbxkDc) 
+
 ## More
 Visit the [ecofunctor](https://www.ecofunctor.com) site for philosophical/theoretical side.
 
