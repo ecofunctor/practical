@@ -31,7 +31,11 @@ The keyboard is independent of software or IDE, whatever you use, like VSCode, C
 
 The keyboard can be configured through web UI. The user can define the key mapping, knob functions, sleep timer, and other settings. The web UI can be accessed by connecting the keyboard to a computer and opening the IP address of the keyboard in a web browser. 
 
-To see the IP address of the keyboard, click the "Settings" button on the touch display. It will start a Wi-Fi hotspot. Connect to the hotspot and open the IP address shown on the touch display in a web browser. Now you can configure the keyboard through the web UI. We recommend some key mapping for different usage scenarios:
+To see the IP address of the keyboard, click the "Settings" button on the touch display. It will start a Wi-Fi hotspot. Connect to the hotspot and open the IP address shown on the touch display in a web browser. Now you can configure the keyboard through the web UI:
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/ce50e346-6786-4627-a05d-77c24286c4bd" />
+
+
+We recommend some key mapping for different usage scenarios:
 
 
 ### scenario: vibe coding
