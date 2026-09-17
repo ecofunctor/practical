@@ -2,6 +2,10 @@
 title: vibe coding keyboard
 type: docs
 ---
+
+Quick intro video: [youtube](https://www.youtube.com/watch?v=-nIaDz6b7S0)
+
+
 Vibe coding, as we dislike or like, has been unavoidable. Fully automatic agents burning electricity and money, working day and night, creating code beyond human understanding, or even sometimes, beyond AI themselves(as of summer 2026). Manual coding has since become a past, a luxury, and sometimes people call it "old school coding". Mixed feelings are constantly in conflict, as it enables us to create something beyond, but also destroys our own understanding, our control, our own creativity, and our struggles. 
 
 
