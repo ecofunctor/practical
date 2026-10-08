@@ -27,14 +27,14 @@ There are also extra buttons on the touch display for sending some common prompt
 
 
 ## Configuration
-The keyboard is independent of software or IDE, whatever you use, like VSCode, Codex, as it's a generic Bluetooth keyboard, so it shall work with any software that can configure the key mapping/shortcuts.
+The keyboard is independent of software or IDE, so it shall work with VSCode, Codex, or any software that can configure the key mapping/shortcuts, as it's a generic Bluetooth keyboard.
 
 The keyboard can be configured through web UI. The user can define the key mapping, knob functions, sleep timer, and other settings. The web UI can be accessed by connecting the keyboard to a computer and opening the IP address of the keyboard in a web browser. 
 
-To see the IP address of the keyboard, click the "Settings" button on the touch display. It will start a Wi-Fi hotspot. Connect to the hotspot and open the IP address shown on the touch display in a web browser. Now you can configure the keyboard through the web UI. We recommend some key mapping for different usage scenarios:
+To see the IP address of the keyboard(usually 192.168.1.1), switch to Config tab. It will start a Wi-Fi hotspot. Connect to the hotspot and open the IP address shown on the touch display in a web browser. Now you can configure the keyboard through the web UI. We recommend some key mapping for different usage scenarios:
 
 
-### scenario: vibe coding
+### scenario: vibe coding with VSCode and Copilot
 The recommended key mapping for vibe coding in VSCode could be:
 - 2 keys for keep or discard the current edit
 - A key to open the chat dialog
@@ -47,8 +47,17 @@ buttons on the touch display:
 - A button to extract the current selection into a new function
 - A button to improve and optimize the codebase.
 
+### scenario: vibe coding with claude
+The guide for claude desktop app is here: https://fastshortcuts.com/shortcuts/claude/ . The configuration is similar to the VSCode.
+
+### scenario: vibe coding with chatgpt/codex
+
 ### scenario: app shortcuts
 Launch specific apps, like browsers, IDEs, or other software, can be done by installing some software in the computer, and then mapping the keys like F13 to F24 for the specific applications. 
+
+### scenario: video editing
+
+### scenario: 3D modeling
 
 
 ## Internal Design
@@ -72,9 +81,12 @@ Design files like PCB schematics are available:
 The software/firmware is written in C++ and based on mixed Arduino and ESP-IDF framework, with platformio as the build system. Firmware source code is available on GitHub: 
 
 ## changelog
-The project started in April 2026.
-<img width="600" alt="image" src="https://github.com/user-attachments/assets/3d019927-8537-4f85-aece-7f75e1b3e1e2" />
+Currently, the project is in v0.4, which finalizes the PCB design and the case design. 
 
+The project started in April 2026.
+
+Here are multiple iterations of the keyboard when we are developing and testing:
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/3d019927-8537-4f85-aece-7f75e1b3e1e2" />
 
 **v0.0:** initial testing, prototype is built with jumpers, capative touch display, pcf8574 expander, and knobs:
 - testing module: esp32-c3 supermini
@@ -100,7 +112,9 @@ we identified some issues:
 - pull-up resistor needed for touch display wakeup.
 - pcb size needs to be changed 
 
-**v0.4:** small changes:
+**v0.4:** middle changes:
 - make pcb size smaller
+- change the touch display with bigger glass cover, so it looks much better.
+- use aluminum front case.
 - change the pull-up resistor for the i2c bus to 4.7k, add pull-up resistor for touch interrupt and expander interrupt.
 - redesign the power management circuit to ditch buck-boost converter, and use a simple ldo to reduce complexity, since li-ion battery is almost exhausted below 3.3v, so it can directly power the ldo to provide 3.3v most of the time.
