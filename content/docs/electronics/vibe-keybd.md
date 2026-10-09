@@ -2,6 +2,7 @@
 title: vibe coding keyboard
 type: docs
 ---
+<img style="width: 70%;" alt="image" src="https://github.com/user-attachments/assets/77e77407-5187-4894-a248-b24ed889ba17" />
 
 Quick intro video: [youtube](https://www.youtube.com/watch?v=-nIaDz6b7S0)
 
