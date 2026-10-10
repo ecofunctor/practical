@@ -27,7 +27,11 @@ To make it different from the capitalist approach, we have the following princip
 - internal economy: the project shall promote economic activities within the project. But as the products are not expensive and designed collectively, it's straightforward.
 
 ## Online community
-Let's chat on [discord](https://discord.gg/HUQMbxkDc) 
+We have various online communities, you can chat on discord, left comments on youtube, or send emails. 
+- [discord](https://discord.gg/HUQMbxkDc) 
+- [youtube](https://www.youtube.com/@ecofunctor)
+- [reddit](https://www.reddit.com/r/ecofunctor/)
+- email: ecofunctor@gmail.com
 
 ## More
 Visit the [ecofunctor](https://www.ecofunctor.com) site for philosophical/theoretical side.

@@ -4,4 +4,4 @@
 The open source website for practical applications of the ecofunctor project, a research center for ecology, mathematics, computer science, and post-capitalism theories.
 
 
-This website is deployed at https://p.ecofunctor.com/
+This website is deployed at https://www.ecofunctor.com/
