@@ -39,7 +39,7 @@ params:
     displayTitle: true
     displayLogo: true
     logo:
-      path: "https://www.ecofunctor.com/images/logo.png"
+      path: "https://theory.ecofunctor.com/images/logo.png"
       link: /
       width: 100
       height: 50
