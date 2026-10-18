@@ -20,11 +20,10 @@ Click the cards below to visit detailed pages:
 
 ## Principles
 To make it different from the capitalist approach, we have the following principles:
-- holographic: each member understands the whole system, rather than just a small part
-- transparent and documented: design, implementation, and business operations shall be documented and open to the public as much as possible
+- holographic: each member understands the whole system rather his own part, to achieve the global optima.
+- transparent and documented: design, implementation, and business operations shall be documented and open to various extent.
 - collective ownership: the profit and loss are keeped mutually or distributed to the members based on collective discussion
-- self-sufficient: the project shall not only focus on a small part specifically like electronics or software, etc, but aiming to expand to a complete system, including food, agriculture, so activities can happen inside this project.
-- internal economy: the project shall promote economic activities within the project. But as the products are not expensive and designed collectively, it's straightforward.
+- self-sufficient and internal economy: the project shall not be limited to electronics or software, etc, but also extend to food, agriculture. It shall promote economic activities within the project, as opposed to modern specialization.
 
 ## Online community
 We have various online communities, you can chat on discord, left comments on youtube, or send emails. 
@@ -34,7 +33,7 @@ We have various online communities, you can chat on discord, left comments on yo
 - email: ecofunctor@gmail.com
 
 ## More
-Visit the [ecofunctor](https://www.ecofunctor.com) site for philosophical/theoretical side.
+Visit [ecofunctor theory](https://theory.ecofunctor.com) site for philosophical/theoretical side.
 
 investment are only for "rich" investors, as the project is not aiming for profit, and only "rich" investors are capable of taking the loss. The expected return may range from -20% to 0%, and the extra profit will be put into the project. This model can be seen as between purely donation and investment.
 

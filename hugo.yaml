@@ -1,5 +1,5 @@
 # Hugo configuration file
-title: practical
+title: ecofunctor practical
 
 # import hextra as module
 module:
@@ -21,8 +21,8 @@ menu:
     - name: Docs
       pageRef: /docs
       weight: 1
-    - name: Theoretical
-      url: "https://www.ecofunctor.com/"
+    - name: Theory
+      url: "https://theory.ecofunctor.com/"
       weight: 2
     - name: Search
       weight: 4
