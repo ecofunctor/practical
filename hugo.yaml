@@ -48,6 +48,7 @@ params:
     displayCopyright: false
     displayPoweredBy: true
 
+  # Render the GitHub edit link at the bottom of docs pages via the docs layout.
   editURL:
-    enable: true
+    enable: false
     base: "https://github.com/ecofunctor/practical/edit/main/content"
