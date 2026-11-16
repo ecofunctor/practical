@@ -3,6 +3,8 @@ title:
 toc: false
 ---
 
+{{< train-route >}}
+
 As the sister project of [ecofunctor](https://www.ecofunctor.com), this project aims to apply the theories to build a cooperative like community
 , as an alternative to the capitalist model. As a living experiment, it's constructive, rather than just another work of critique. It focuses on practical aspects of human life:
 - architecture and design
@@ -10,6 +12,7 @@ As the sister project of [ecofunctor](https://www.ecofunctor.com), this project 
 - electronics
 - software, hardware and machines
 - coffee shop, restaurants, and places for social gathering
+
 
 Money, as the new religion, claims to solve all problems, but instead it shadows the real problems, shadows the anxiety, depression caused by the problems, and we still have to face the problems from live to death. This project takes a direct approach, rather than factor everything through money, or it's equivalent.
 

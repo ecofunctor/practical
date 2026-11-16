@@ -1,0 +1,12 @@
+currentStopIndex: 2
+stops:
+  - name: Hong Kong
+    time: "08:00"
+  - name: Shenzhen
+    time: "09:30"
+  - name: Copenhagen
+    time: "22:15"
+  - name: Oslo
+    time: "23:45"
+  - name: Stockholm
+    time: "06:30"
