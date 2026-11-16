@@ -1,7 +1,9 @@
----
+<img width="1536" height="2048" alt="image" src="https://github.com/user-attachments/assets/cd8f9b3d-f495-4672-9b9a-50d49cea0225" />---
 title: Linking machine
 type: docs
 ---
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/b2f178fb-ae41-4970-9f0d-a9c5c28926a4" />
 
 The linking machine is named generically, as it aims to help people memorize, thus linking the knowledge together. 
 
