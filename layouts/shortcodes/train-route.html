@@ -1,168 +1,260 @@
-{{- $route := index site.Data "train-route" -}}
-{{- $stops := $route.stops -}}
-{{- $current := $route.currentStopIndex -}}
-<div class="train-route" role="img"
-  aria-label="Train route: {{ range $index, $stop := $stops }}{{ if $index }}, {{ end }}{{ $stop.name }} at {{ $stop.time }}{{ if eq $index $current }} (current stop){{ end }}{{ end }}">
-  <svg class="train-route__map" viewBox="0 0 600 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <style>
-      .train-route {
-        box-sizing: border-box;
-        width: 100%;
-        margin: 1.5rem 0;
-        padding: 1.5rem 1rem 0.75rem;
-        overflow: hidden;
-        border-radius: 0.5rem;
-        background: #2e3440;
-      }
+<style>
+  .train-route {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 1.5rem 0;
+    padding: 1.5rem 1rem 0.75rem;
+    overflow: hidden;
+    border-radius: 0.1rem;
+    background: #2e3440;
+  }
 
-      .train-route__map {
-        display: block;
-        width: 100%;
-        height: auto;
-        color: #d8dee9;
-        font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
-      }
+  .train-route__map {
+    display: block;
+    width: 100%;
+    height: auto;
+    color: #d8dee9;
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+  }
 
-      .train-route__line {
-        stroke: #4c566a;
-        stroke-width: 2.5;
-      }
+  .train-route__line {
+    stroke: #4c566a;
+    stroke-width: 2.5;
+  }
 
-      .train-route__line--dashed {
-        stroke-dasharray: 5 5;
-      }
+  .train-route__line--dashed {
+    stroke-dasharray: 5 5;
+  }
 
-      .train-route__arrow {
-        fill: none;
-        stroke: #88c0d0;
-        stroke-width: 2.5;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-      }
+  .train-route__arrow {
+    fill: none;
+    stroke: #6b97a3;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
 
-      .train-route__arrow--active {
-        animation: train-route-arrow-move 2s infinite ease-in-out;
-      }
+  .train-route__arrow--active {
+    animation: train-route-arrow-move 2s infinite ease-in-out;
+  }
 
-      .train-route__dot {
-        fill: #3b4252;
-        stroke: #4c566a;
-        stroke-width: 2;
-      }
+  .train-route__dot {
+    fill: #3b4252;
+    stroke: #4c566a;
+    stroke-width: 2;
+  }
 
-      .train-route__dot--completed {
-        fill: #88c0d0;
-        stroke: #88c0d0;
-      }
+  .train-route__dot--completed {
+    fill: #88c0d0;
+    stroke: #88c0d0;
+  }
 
-      .train-route__dot--current {
-        fill: #ebcb8b;
-        stroke: #ebcb8b;
-      }
+  .train-route__dot--current {
+    fill: #ebcb8b;
+    stroke: #ebcb8b;
+  }
 
-      .train-route__pulse {
-        fill: none;
-        stroke: #ebcb8b;
-        stroke-width: 2;
-        animation: train-route-pulse 2s infinite ease-out;
-      }
+  .train-route__pulse {
+    fill: none;
+    stroke: #ebcb8b;
+    stroke-width: 2;
+    animation: train-route-pulse 2s infinite ease-out;
+  }
 
-      .train-route__time {
-        fill: #d8dee9;
-        font-size: 12px;
-        text-anchor: middle;
-      }
+  .train-route__time {
+    fill: #d8dee9;
+    font-size: 12px;
+    text-anchor: middle;
+  }
 
-      .train-route__name {
-        fill: #d8dee9;
-        font-size: 15px;
-      }
+  .train-route__name {
+    fill: #d8dee9;
+    font-size: 15px;
+  }
 
-      .train-route__name--current {
-        fill: #ebcb8b;
-        font-weight: 600;
-      }
+  .train-route__name--current {
+    fill: #ebcb8b;
+    font-weight: 600;
+  }
 
-      @keyframes train-route-arrow-move {
-        0% {
-          transform: translateX(-15px);
-          opacity: 0.3;
+  @keyframes train-route-arrow-move {
+    0% {
+      transform: translateX(-25px);
+      opacity: 0.3;
+    }
+
+    50% {
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateX(25px);
+      opacity: 0.3;
+    }
+  }
+
+  @keyframes train-route-pulse {
+    0% {
+      r: 6px;
+      opacity: 0.8;
+    }
+
+    100% {
+      r: 20px;
+      opacity: 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .train-route {
+      padding: 1rem 0.5rem 0.5rem;
+    }
+
+    .train-route__time {
+      font-size: 11px;
+    }
+
+    .train-route__name {
+      font-size: 13px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+
+    .train-route__arrow--active,
+    .train-route__pulse {
+      animation: none;
+    }
+  }
+</style>
+<div class="train-route" role="img" aria-label="Train route diagram. Enable JavaScript to view the route."></div>
+<script>
+  (() => {
+    const route = {
+      currentStopIndex: 2,
+      stops: [
+        { name: "South SZ(Shenzhen)", time: "09:30" },
+        { name: "SouthNord YN(Chuxiong)", time: "10:30" },
+        { name: "Copenhagen", time: "22:15" },
+        { name: "Oslo", time: "23:45" },
+        { name: "Stockholm", time: "06:30" },
+      ],
+    };
+
+    const svgNS = "http://www.w3.org/2000/svg";
+    const layout = { xStart: 72, step: 114, y: 50, minWidth: 600, height: 120 };
+
+    function isValidRoute(candidate) {
+      return Array.isArray(candidate.stops)
+        && candidate.stops.length > 0
+        && candidate.stops.every((stop) => stop.name && stop.time);
+    }
+
+    function addSvgElement(parent, name, attributes, text) {
+      const element = document.createElementNS(svgNS, name);
+      Object.entries(attributes).forEach(([key, value]) => element.setAttribute(key, value));
+      if (text !== undefined) element.textContent = text;
+      parent.appendChild(element);
+      return element;
+    }
+
+    function createSvg(stops) {
+      const width = Math.max(
+        layout.minWidth,
+        layout.xStart * 2 + (stops.length - 1) * layout.step,
+      );
+      const svg = document.createElementNS(svgNS, "svg");
+      svg.setAttribute("class", "train-route__map");
+      svg.setAttribute("viewBox", `0 0 ${width} ${layout.height}`);
+      svg.setAttribute("aria-hidden", "true");
+      return svg;
+    }
+
+    function renderSegments(svg, stops) {
+      for (let index = 0; index < stops.length - 1; index += 1) {
+        const classes = ["train-route__line"];
+        if (index === 0 || index === stops.length - 2) {
+          classes.push("train-route__line--dashed");
+        }
+        addSvgElement(svg, "line", {
+          class: classes.join(" "),
+          x1: layout.xStart + index * layout.step,
+          y1: layout.y,
+          x2: layout.xStart + (index + 1) * layout.step,
+          y2: layout.y,
+        });
+      }
+    }
+
+    function renderCurrentArrow(svg, currentIndex) {
+      if (currentIndex === 0) return;
+
+      const arrowX = layout.xStart + currentIndex * layout.step - layout.step / 2;
+      addSvgElement(svg, "polyline", {
+        class: "train-route__arrow train-route__arrow--active",
+        points: `${arrowX - 6},${layout.y - 6} ${arrowX + 6},${layout.y} ${arrowX - 6},${layout.y + 6}`,
+      });
+    }
+
+    function renderStops(svg, stops, currentIndex) {
+      return stops.map((stop, index) => {
+        const x = layout.xStart + index * layout.step;
+        const isCurrent = index === currentIndex;
+        const classes = ["train-route__dot"];
+        if (index < currentIndex) classes.push("train-route__dot--completed");
+        if (isCurrent) {
+          classes.push("train-route__dot--current");
+          addSvgElement(svg, "circle", {
+            class: "train-route__pulse",
+            cx: x,
+            cy: layout.y,
+            r: 20,
+          });
         }
 
-        50% {
-          opacity: 1;
-        }
+        addSvgElement(svg, "circle", {
+          class: classes.join(" "),
+          cx: x,
+          cy: layout.y,
+          r: 8,
+        });
+        addSvgElement(svg, "text", {
+          class: "train-route__time",
+          x,
+          y: layout.y - 16,
+        }, stop.time);
 
-        100% {
-          transform: translateX(15px);
-          opacity: 0.3;
-        }
-      }
+        const textX = x - 5;
+        const textY = layout.y + 28;
+        const nameClasses = ["train-route__name"];
+        if (isCurrent) nameClasses.push("train-route__name--current");
+        addSvgElement(svg, "text", {
+          class: nameClasses.join(" "),
+          x: textX,
+          y: textY,
+          transform: `rotate(30 ${textX} ${textY})`,
+        }, stop.name);
 
-      @keyframes train-route-pulse {
-        0% {
-          r: 6px;
-          opacity: 0.8;
-        }
+        return `${stop.name} at ${stop.time}${isCurrent ? " (current stop)" : ""}`;
+      });
+    }
 
-        100% {
-          r: 20px;
-          opacity: 0;
-        }
-      }
+    function renderRoute() {
+      const container = document.currentScript.previousElementSibling;
+      if (!container || !isValidRoute(route)) return;
 
-      @media (max-width: 480px) {
-        .train-route {
-          padding: 1rem 0.5rem 0.5rem;
-        }
+      const rawCurrentIndex = Number.isInteger(route.currentStopIndex) ? route.currentStopIndex : 0;
+      const currentIndex = Math.min(Math.max(rawCurrentIndex, 0), route.stops.length - 1);
+      const svg = createSvg(route.stops);
 
-        .train-route__time {
-          font-size: 11px;
-        }
+      renderSegments(svg, route.stops);
+      renderCurrentArrow(svg, currentIndex);
+      const accessibleStops = renderStops(svg, route.stops, currentIndex);
 
-        .train-route__name {
-          font-size: 13px;
-        }
-      }
+      container.setAttribute("aria-label", `Train route: ${accessibleStops.join(", ")}`);
+      container.replaceChildren(svg);
+    }
 
-      @media (prefers-reduced-motion: reduce) {
-
-        .train-route__arrow--active,
-        .train-route__pulse {
-          animation: none;
-        }
-      }
-    </style>
-    {{- $xStart := 72 -}}
-    {{- $step := 114 -}}
-    {{- $y := 50 -}}
-    {{- range $index, $stop := $stops -}}
-    {{- if lt $index (sub (len $stops) 1) -}}
-    {{- $nextX := add $xStart (mul (add $index 1) $step) -}}
-    {{- $x := add $xStart (mul $index $step) -}}
-    <line
-      class="train-route__line{{ if or (eq $index 0) (eq $index (sub (len $stops) 2)) }} train-route__line--dashed{{ end }}"
-      x1="{{ $x }}" y1="{{ $y }}" x2="{{ $nextX }}" y2="{{ $y }}" />
-    {{- end -}}
-    {{- end -}}
-    {{- if gt $current 0 -}}
-    {{- $arrowX := add $xStart (mul $current $step) -}}
-    {{- $arrowX = sub $arrowX (div $step 2) -}}
-    <polyline class="train-route__arrow train-route__arrow--active"
-      points="{{ sub $arrowX 6 }},{{ sub $y 6 }} {{ add $arrowX 6 }},{{ $y }} {{ sub $arrowX 6 }},{{ add $y 6 }}" />
-    {{- end -}}
-    {{- range $index, $stop := $stops -}}
-    {{- $x := add $xStart (mul $index $step) -}}
-    {{- if eq $index $current }}
-    <circle class="train-route__pulse" cx="{{ $x }}" cy="{{ $y }}" r="20" />{{ end -}}
-    <circle
-      class="train-route__dot{{ if lt $index $current }} train-route__dot--completed{{ else if eq $index $current }} train-route__dot--current{{ end }}"
-      cx="{{ $x }}" cy="{{ $y }}" r="8" />
-    <text class="train-route__time" x="{{ $x }}" y="{{ sub $y 16 }}">{{ $stop.time }}</text>
-    {{- $textX := sub $x 5 -}}
-    {{- $textY := add $y 28 -}}
-    <text class="train-route__name{{ if eq $index $current }} train-route__name--current{{ end }}" x="{{ $textX }}"
-      y="{{ $textY }}" transform="rotate(30 {{ $textX }} {{ $textY }})">{{ $stop.name }}</text>
-    {{- end }}
-  </svg>
-</div>
+    renderRoute();
+  })();
+</script>
