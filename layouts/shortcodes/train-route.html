@@ -87,6 +87,12 @@
     text-anchor: middle;
   }
 
+  .train-route__duration {
+    fill: var(--route-text);
+    font-size: 10px;
+    text-anchor: middle;
+  }
+
   .train-route__name {
     fill: var(--route-text);
     font-size: 15px;
@@ -176,7 +182,7 @@
       stops: [
         {
           name: "South SZ",
-          location: "Shenzhen,China",
+          location: "Dameisha,Shenzhen,China",
           time: "09:30",
           toNext: "1.5h"
         },
@@ -184,7 +190,7 @@
           name: "SouthMiddle NKS",
           location: "Nankun Mountain,Huizhou,China",
           time: "10:30",
-          toNext: "1.5h"
+          toNext: "6h"
         },
         {
           name: "SouthNord YN",
@@ -202,9 +208,9 @@
 
     const config = {
       svg: { minWidth: 850, height: 180 },
-      route: { xStart: 72, stopSpacing: 114, lineY: 50 },
-      stops: { rotation: 25 },
-      legend: { x: 470, top: 20, rowHeight: 32, titleHeight: 18, bottomPadding: 10 },
+      route: { xStart: 72, stopSpacing: 114, lineY: 50, showTravelTime: true },
+      stops: { rotation: 25, showTime: false },
+      legend: { width: 340, rightPadding: 24, top: 20, rowHeight: 32, titleHeight: 18, bottomPadding: 10 },
     };
 
     const svgNS = "http://www.w3.org/2000/svg";
@@ -223,11 +229,17 @@
       return element;
     }
 
-    function createSvg(stops) {
-      const width = Math.max(
+    function getSvgWidth(stops) {
+      const routeWidth = config.route.xStart * 2
+        + (stops.length - 1) * config.route.stopSpacing;
+      return Math.max(
         config.svg.minWidth,
-        config.route.xStart * 2 + (stops.length - 1) * config.route.stopSpacing,
+        routeWidth + config.legend.width + config.legend.rightPadding * 2,
       );
+    }
+
+    function createSvg(stops) {
+      const width = getSvgWidth(stops);
       const legendHeight = config.legend.top + config.legend.titleHeight
         + config.legend.rowHeight * stops.length
         + config.legend.bottomPadding;
@@ -251,6 +263,14 @@
           x2: config.route.xStart + (index + 1) * config.route.stopSpacing,
           y2: config.route.lineY,
         });
+        if (config.route.showTravelTime && stops[index].toNext) {
+          const midpoint = config.route.xStart + (index + 0.5) * config.route.stopSpacing;
+          addSvgElement(svg, "text", {
+            class: "train-route__duration",
+            x: midpoint,
+            y: config.route.lineY - 12,
+          }, stops[index].toNext);
+        }
       }
     }
 
@@ -286,11 +306,13 @@
           cy: config.route.lineY,
           r: 8,
         });
-        addSvgElement(svg, "text", {
-          class: "train-route__time",
-          x,
-          y: config.route.lineY - 16,
-        }, stop.time);
+        if (config.stops.showTime) {
+          addSvgElement(svg, "text", {
+            class: "train-route__time",
+            x,
+            y: config.route.lineY - 16,
+          }, stop.time);
+        }
 
         const textX = x - 5;
         const textY = config.route.lineY + 28;
@@ -309,9 +331,10 @@
     }
 
     function renderLegend(svg, stops) {
+      const legendX = getSvgWidth(stops) - config.legend.width - config.legend.rightPadding;
       addSvgElement(svg, "text", {
         class: "train-route__legend-title",
-        x: config.legend.x,
+        x: legendX,
         y: config.legend.top,
       }, "Details");
 
@@ -320,18 +343,18 @@
           + config.legend.rowHeight * index;
         addSvgElement(svg, "circle", {
           class: "train-route__legend-dot",
-          cx: config.legend.x + 3,
+          cx: legendX + 3,
           cy: rowY - 3,
           r: 3,
         });
         const item = addSvgElement(svg, "text", {
           class: "train-route__legend-item",
-          x: config.legend.x + 12,
+          x: legendX + 12,
           y: rowY,
         }, stop.name);
         addSvgElement(item, "tspan", {
           class: "train-route__legend-location",
-          x: config.legend.x + 12,
+          x: legendX + 12,
           dy: 12,
         }, stop.location || "Location not specified");
       });
