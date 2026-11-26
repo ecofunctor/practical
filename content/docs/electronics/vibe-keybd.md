@@ -93,29 +93,13 @@ The project started in April 2026.
 Here are multiple iterations of the keyboard when we are developing and testing:
 <img width="600" alt="image" src="https://github.com/user-attachments/assets/3d019927-8537-4f85-aece-7f75e1b3e1e2" />
 
-**v0.0:** initial testing, prototype is built with jumpers, capative touch display, pcf8574 expander, and knobs:
-- testing module: esp32-c3 supermini
-- focus on lvgl and touch display
-- optimize the knob algorithm
+**v0.6:** minor changes:
+- changed the color of the PCB from green to white
+- add wireless charging support(NU1680, 2-3W,Qi standard)
 
-
-**v0.1:** initial release, PCB is designed and manufactured, but LCD connection is wrong and flipped, so it's not testable at all.
-
-
-**v0.2:** fixed the LCD connection, and everything works except wifi. io expander is upgraded to tca9535 with 16 GPIOs, as a test spot, so more native io can be used for battery level detection, and brightness control
-
-
-**v0.3:** dump esp32-c3 supermini module for esp32-c3-wroom, and wifi issue is fixed:
-- replaced esp32-c3 supermini with esp32-c3-wroom module for better wifi performance
-<img width="600" alt="image" src="https://github.com/user-attachments/assets/5e58b2fd-64f4-4326-9d74-e437d6da4f56" />
-
-<img width="600" alt="image" src="https://github.com/user-attachments/assets/c290362a-e092-4f8a-93a3-db270caa83bf" />
-
-
-we identified some issues:
-- 4.7k pull-up resistors are needed for the i2c bus
-- pull-up resistor needed for touch display wakeup.
-- pcb size needs to be changed 
+**v0.5:** minor changes:
+- adjusted the knob placement so it's far from each other
+- add TP interrupt which is previously missing for wakeup
 
 **v0.4:** middle changes:
 - make pcb size smaller
@@ -123,3 +107,30 @@ we identified some issues:
 - use aluminum front case.
 - change the pull-up resistor for the i2c bus to 4.7k, add pull-up resistor for touch interrupt and expander interrupt.
 - redesign the power management circuit to ditch buck-boost converter, and use a simple ldo to reduce complexity, since li-ion battery is almost exhausted below 3.3v, so it can directly power the ldo to provide 3.3v most of the time.
+
+
+**v0.3:** dump esp32-c3 supermini module for esp32-c3-wroom, and wifi issue is fixed:
+- replaced esp32-c3 supermini with esp32-c3-wroom module for better wifi performance
+
+
+we identified some issues:
+- 4.7k pull-up resistors are needed for the i2c bus
+- pull-up resistor needed for touch display wakeup.
+- pcb size needs to be changed 
+
+
+**v0.2:** fixed the LCD connection, and everything works except wifi. io expander is upgraded to tca9535 with 16 GPIOs, as a test spot, so more native io can be used for battery level detection, and brightness control
+
+
+**v0.1:** initial release, PCB is designed and manufactured, but LCD connection is wrong and flipped, so it's not testable at all.
+
+
+**v0.0:** initial testing, prototype is built with jumpers, capative touch display, pcf8574 expander, and knobs:
+- testing module: esp32-c3 supermini
+- focus on lvgl and touch display
+- optimize the knob algorithm
+
+some pcb design show:
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/5e58b2fd-64f4-4326-9d74-e437d6da4f56" />
+
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/c290362a-e092-4f8a-93a3-db270caa83bf" />

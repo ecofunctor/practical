@@ -1,382 +1,428 @@
 <style>
-  .train-route {
-    --route-bg: #f3f5f7;
-    --route-text: #2e3440;
-    --route-line: #aab4c0;
-    --route-dot-fill: #e5e9f0;
-    --route-dot-stroke: #8793a3;
-    --route-completed: #2f7180;
-    --route-current: #9a6200;
-    --route-arrow: #477985;
-    box-sizing: border-box;
-    width: 100%;
-    margin: 1.5rem 0;
-    padding: 1.5rem 1rem 0.75rem;
-    overflow: hidden;
-    border-radius: 0.1rem;
-    background: var(--route-bg);
-    transition: background-color 200ms ease;
-  }
-
-  :root.dark .train-route {
-    --route-bg: #2e3440;
-    --route-text: #d8dee9;
-    --route-line: #4c566a;
-    --route-dot-fill: #3b4252;
-    --route-dot-stroke: #4c566a;
-    --route-completed: #88c0d0;
-    --route-current: #ebcb8b;
-    --route-arrow: #6b97a3;
-  }
-
-  .train-route__map {
-    display: block;
-    width: 100%;
-    height: auto;
-    color: var(--route-text);
-    font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
-  }
-
-  .train-route__line {
-    stroke: var(--route-line);
-    stroke-width: 2.5;
-  }
-
-  .train-route__line--dashed {
-    stroke-dasharray: 5 5;
-  }
-
-  .train-route__arrow {
-    fill: none;
-    stroke: var(--route-arrow);
-    stroke-width: 2.5;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-
-  .train-route__arrow--active {
-    animation: train-route-arrow-move 2s infinite ease-in-out;
-  }
-
-  .train-route__dot {
-    fill: var(--route-dot-fill);
-    stroke: var(--route-dot-stroke);
-    stroke-width: 2;
-  }
-
-  .train-route__dot--completed {
-    fill: var(--route-completed);
-    stroke: var(--route-completed);
-  }
-
-  .train-route__dot--current {
-    fill: var(--route-current);
-    stroke: var(--route-current);
-  }
-
-  .train-route__pulse {
-    fill: none;
-    stroke: var(--route-current);
-    stroke-width: 2;
-    animation: train-route-pulse 2s infinite ease-out;
-  }
-
-  .train-route__time {
-    fill: var(--route-text);
-    font-size: 12px;
-    text-anchor: middle;
-  }
-
-  .train-route__duration {
-    fill: var(--route-text);
-    font-size: 10px;
-    text-anchor: middle;
-  }
-
-  .train-route__name {
-    fill: var(--route-text);
-    font-size: 15px;
-  }
-
-  .train-route__name--current {
-    fill: var(--route-current);
-    font-weight: 600;
-  }
-
-  .train-route__legend-title {
-    fill: var(--route-text);
-    font-size: 12px;
-    font-weight: 600;
-  }
-
-  .train-route__legend-item {
-    fill: var(--route-text);
-    font-size: 10px;
-  }
-
-  .train-route__legend-location {
-    font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-    font-size: 10px;
-    opacity: 0.75;
-  }
-
-  .train-route__legend-dot {
-    fill: var(--route-completed);
-  }
-
-  @keyframes train-route-arrow-move {
-    0% {
-      transform: translateX(-25px);
-      opacity: 0.3;
-    }
-
-    50% {
-      opacity: 1;
-    }
-
-    100% {
-      transform: translateX(25px);
-      opacity: 0.3;
-    }
-  }
-
-  @keyframes train-route-pulse {
-    0% {
-      r: 6px;
-      opacity: 0.8;
-    }
-
-    100% {
-      r: 20px;
-      opacity: 0;
-    }
-  }
-
-  @media (max-width: 480px) {
     .train-route {
-      padding: 1rem 0.5rem 0.5rem;
+        --route-bg: #f3f5f7;
+        --route-text: #2e3440;
+        --route-line: #aab4c0;
+        --route-dot-fill: #e5e9f0;
+        --route-dot-stroke: #8793a3;
+        --route-completed: #2f7180;
+        --route-current: #9a6200;
+        --route-arrow: #477985;
+        box-sizing: border-box;
+        width: 100%;
+        margin: 1.5rem 0;
+        padding: 1.5rem 1rem 0.75rem;
+        overflow: hidden;
+        border-radius: 0.1rem;
+        background: var(--route-bg);
+        transition: background-color 200ms ease;
+    }
+
+    :root.dark .train-route {
+        --route-bg: #2e3440;
+        --route-text: #d8dee9;
+        --route-line: #4c566a;
+        --route-dot-fill: #3b4252;
+        --route-dot-stroke: #4c566a;
+        --route-completed: #88c0d0;
+        --route-current: #ebcb8b;
+        --route-arrow: #6b97a3;
+    }
+
+    .train-route__map {
+        display: block;
+        width: 100%;
+        height: auto;
+        color: var(--route-text);
+        font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+    }
+
+    .train-route__layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 340px;
+        align-items: start;
+        gap: 1.5rem;
+    }
+
+    .train-route__map-scroll {
+        min-width: 0;
+        overflow-x: auto;
+    }
+
+    .train-route__line {
+        stroke: var(--route-line);
+        stroke-width: 2.5;
+    }
+
+    .train-route__line--dashed {
+        stroke-dasharray: 5 5;
+    }
+
+    .train-route__arrow {
+        fill: none;
+        stroke: var(--route-arrow);
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    .train-route__arrow--active {
+        animation: train-route-arrow-move 2s infinite ease-in-out;
+    }
+
+    .train-route__dot {
+        fill: var(--route-dot-fill);
+        stroke: var(--route-dot-stroke);
+        stroke-width: 2;
+    }
+
+    .train-route__dot--completed {
+        fill: var(--route-completed);
+        stroke: var(--route-completed);
+    }
+
+    .train-route__dot--current {
+        fill: var(--route-current);
+        stroke: var(--route-current);
+    }
+
+    .train-route__pulse {
+        fill: none;
+        stroke: var(--route-current);
+        stroke-width: 2;
+        animation: train-route-pulse 2s infinite ease-out;
     }
 
     .train-route__time {
-      font-size: 11px;
+        fill: var(--route-text);
+        font-size: 12px;
+        text-anchor: middle;
+    }
+
+    .train-route__duration {
+        fill: var(--route-text);
+        font-size: 10px;
+        text-anchor: middle;
     }
 
     .train-route__name {
-      font-size: 13px;
+        fill: var(--route-text);
+        font-size: 15px;
     }
-  }
 
-  @media (prefers-reduced-motion: reduce) {
-
-    .train-route__arrow--active,
-    .train-route__pulse {
-      animation: none;
+    .train-route__name--current {
+        fill: var(--route-current);
+        font-weight: 600;
     }
-  }
+
+    .train-route__details-title {
+        margin: 0 0 0.75rem;
+        color: var(--route-text);
+        font-size: 0.875rem;
+        font-weight: 600;
+    }
+
+    .train-route__details-list {
+        display: grid;
+        gap: 0.75rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .train-route__details-item {
+        display: grid;
+        grid-template-columns: 0.5rem minmax(0, 1fr);
+        align-items: start;
+        gap: 0.5rem;
+        color: var(--route-text);
+        font-size: 0.75rem;
+        line-height: 1.4;
+    }
+
+    .train-route__details-dot {
+        width: 0.45rem;
+        height: 0.45rem;
+        margin-top: 0.25rem;
+        border-radius: 50%;
+        background: var(--route-completed);
+    }
+
+    .train-route__details-dot--current {
+        background: var(--route-current);
+    }
+
+    .train-route__details-location {
+        display: block;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+        opacity: 0.75;
+    }
+
+    @keyframes train-route-arrow-move {
+        0% {
+            transform: translateX(-25px);
+            opacity: 0.3;
+        }
+
+        50% {
+            opacity: 1;
+        }
+
+        100% {
+            transform: translateX(25px);
+            opacity: 0.3;
+        }
+    }
+
+    @keyframes train-route-pulse {
+        0% {
+            r: 6px;
+            opacity: 0.8;
+        }
+
+        100% {
+            r: 20px;
+            opacity: 0;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .train-route {
+            padding: 1rem 0.5rem 0.5rem;
+        }
+
+        .train-route__layout {
+            grid-template-columns: minmax(0, 1fr);
+            gap: 1rem;
+        }
+
+        .train-route__details {
+            padding: 0 0.25rem;
+        }
+
+        .train-route__time {
+            font-size: 11px;
+        }
+
+        .train-route__name {
+            font-size: 13px;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+        .train-route__arrow--active,
+        .train-route__pulse {
+            animation: none;
+        }
+    }
 </style>
-<div class="train-route" role="img" aria-label="Train route diagram. Enable JavaScript to view the route."></div>
+<div class="train-route" role="region" aria-label="Train route diagram. Enable JavaScript to view the route."></div>
 <script>
-  (() => {
-    const route = {
-      currentStopIndex: 2,
-      stops: [
-        {
-          name: "South SZ",
-          location: "Dameisha,Shenzhen,China",
-          time: "09:30",
-          toNext: "1.5h"
-        },
-        {
-          name: "SouthMiddle NKS",
-          location: "Nankun Mountain,Huizhou,China",
-          time: "10:30",
-          toNext: "6h"
-        },
-        {
-          name: "SouthNord YN",
-          location: "Chuxiong,Yunnan,China",
-          time: "10:30",
-          toNext: "60h"
-        },
-        {
-          name: "Nord",
-          location: "Copenhagen,Denmark",
-          time: "22:15"
-        },
-      ],
-    };
+    (() => {
+        const route = {
+            currentStopIndex: 2,
+            stops: [
+                {
+                    name: "South SZ",
+                    location: "Dameisha,Shenzhen,China",
+                    time: "09:30",
+                    toNext: "1.5h"
+                },
+                {
+                    name: "SouthMiddle NKS",
+                    location: "Nankun Mountain,Longmen,Huizhou,China",
+                    time: "10:30",
+                    toNext: "8h"
+                },
+                {
+                    name: "SouthNord CX",
+                    location: "Chuxiong,Yunnan,China",
+                    time: "10:30",
+                    toNext: "60h"
+                },
+                {
+                    name: "Nord Cph",
+                    location: "Copenhagen,Denmark",
+                    time: "22:15"
+                },
+            ],
+        };
 
-    const config = {
-      svg: { minWidth: 850, height: 180 },
-      route: { xStart: 72, stopSpacing: 114, lineY: 50, showTravelTime: true },
-      stops: { rotation: 25, showTime: false },
-      legend: { width: 340, rightPadding: 24, top: 20, rowHeight: 32, titleHeight: 18, bottomPadding: 10 },
-    };
+        const config = {
+            svg: { height: 180 },
+            route: { xStart: 72, stopSpacing: 114, lineY: 50, showTravelTime: true },
+            stops: { rotation: 25, showTime: false },
+        };
 
-    const svgNS = "http://www.w3.org/2000/svg";
+        const svgNS = "http://www.w3.org/2000/svg";
 
-    function isValidRoute(candidate) {
-      return Array.isArray(candidate.stops)
-        && candidate.stops.length > 0
-        && candidate.stops.every((stop) => stop.name && stop.time);
-    }
-
-    function addSvgElement(parent, name, attributes, text) {
-      const element = document.createElementNS(svgNS, name);
-      Object.entries(attributes).forEach(([key, value]) => element.setAttribute(key, value));
-      if (text !== undefined) element.textContent = text;
-      parent.appendChild(element);
-      return element;
-    }
-
-    function getSvgWidth(stops) {
-      const routeWidth = config.route.xStart * 2
-        + (stops.length - 1) * config.route.stopSpacing;
-      return Math.max(
-        config.svg.minWidth,
-        routeWidth + config.legend.width + config.legend.rightPadding * 2,
-      );
-    }
-
-    function createSvg(stops) {
-      const width = getSvgWidth(stops);
-      const legendHeight = config.legend.top + config.legend.titleHeight
-        + config.legend.rowHeight * stops.length
-        + config.legend.bottomPadding;
-      const svg = document.createElementNS(svgNS, "svg");
-      svg.setAttribute("class", "train-route__map");
-      svg.setAttribute("viewBox", `0 0 ${width} ${Math.max(config.svg.height, legendHeight)}`);
-      svg.setAttribute("aria-hidden", "true");
-      return svg;
-    }
-
-    function renderSegments(svg, stops) {
-      for (let index = 0; index < stops.length - 1; index += 1) {
-        const classes = ["train-route__line"];
-        if (index === 0 || index === stops.length - 2) {
-          classes.push("train-route__line--dashed");
-        }
-        addSvgElement(svg, "line", {
-          class: classes.join(" "),
-          x1: config.route.xStart + index * config.route.stopSpacing,
-          y1: config.route.lineY,
-          x2: config.route.xStart + (index + 1) * config.route.stopSpacing,
-          y2: config.route.lineY,
-        });
-        if (config.route.showTravelTime && stops[index].toNext) {
-          const midpoint = config.route.xStart + (index + 0.5) * config.route.stopSpacing;
-          addSvgElement(svg, "text", {
-            class: "train-route__duration",
-            x: midpoint,
-            y: config.route.lineY - 12,
-          }, stops[index].toNext);
-        }
-      }
-    }
-
-    function renderCurrentArrow(svg, currentIndex) {
-      if (currentIndex === 0) return;
-
-      const arrowX = config.route.xStart + currentIndex * config.route.stopSpacing - config.route.stopSpacing / 2;
-      addSvgElement(svg, "polyline", {
-        class: "train-route__arrow train-route__arrow--active",
-        points: `${arrowX - 6},${config.route.lineY - 6} ${arrowX + 6},${config.route.lineY} ${arrowX - 6},${config.route.lineY + 6}`,
-      });
-    }
-
-    function renderStops(svg, stops, currentIndex) {
-      return stops.map((stop, index) => {
-        const x = config.route.xStart + index * config.route.stopSpacing;
-        const isCurrent = index === currentIndex;
-        const classes = ["train-route__dot"];
-        if (index < currentIndex) classes.push("train-route__dot--completed");
-        if (isCurrent) {
-          classes.push("train-route__dot--current");
-          addSvgElement(svg, "circle", {
-            class: "train-route__pulse",
-            cx: x,
-            cy: config.route.lineY,
-            r: 20,
-          });
+        function isValidRoute(candidate) {
+            return Array.isArray(candidate.stops)
+                && candidate.stops.length > 0
+                && candidate.stops.every((stop) => stop.name && stop.time);
         }
 
-        addSvgElement(svg, "circle", {
-          class: classes.join(" "),
-          cx: x,
-          cy: config.route.lineY,
-          r: 8,
-        });
-        if (config.stops.showTime) {
-          addSvgElement(svg, "text", {
-            class: "train-route__time",
-            x,
-            y: config.route.lineY - 16,
-          }, stop.time);
+        function addSvgElement(parent, name, attributes, text) {
+            const element = document.createElementNS(svgNS, name);
+            Object.entries(attributes).forEach(([key, value]) => element.setAttribute(key, value));
+            if (text !== undefined) element.textContent = text;
+            parent.appendChild(element);
+            return element;
         }
 
-        const textX = x - 5;
-        const textY = config.route.lineY + 28;
-        const nameClasses = ["train-route__name"];
-        if (isCurrent) nameClasses.push("train-route__name--current");
-        addSvgElement(svg, "text", {
-          class: nameClasses.join(" "),
-          x: textX,
-          y: textY,
-          transform: `rotate(${config.stops.rotation} ${textX} ${textY})`,
-        }, stop.name);
+        function getRouteWidth(stops) {
+            return config.route.xStart * 2
+                + (stops.length - 1) * config.route.stopSpacing;
+        }
 
-        const location = stop.location || "Location not specified";
-        return `${stop.name} at ${stop.time}, ${location}${isCurrent ? " (current stop)" : ""}`;
-      });
-    }
+        function createSvg(stops) {
+            const width = getRouteWidth(stops);
+            const svg = document.createElementNS(svgNS, "svg");
+            svg.setAttribute("class", "train-route__map");
+            svg.setAttribute("viewBox", `0 0 ${width} ${config.svg.height}`);
+            svg.setAttribute("aria-hidden", "true");
+            return svg;
+        }
 
-    function renderLegend(svg, stops) {
-      const legendX = getSvgWidth(stops) - config.legend.width - config.legend.rightPadding;
-      addSvgElement(svg, "text", {
-        class: "train-route__legend-title",
-        x: legendX,
-        y: config.legend.top,
-      }, "Details");
+        function renderSegments(svg, stops) {
+            for (let index = 0; index < stops.length - 1; index += 1) {
+                const classes = ["train-route__line"];
+                if (index === 0 || index === stops.length - 2) {
+                    classes.push("train-route__line--dashed");
+                }
+                addSvgElement(svg, "line", {
+                    class: classes.join(" "),
+                    x1: config.route.xStart + index * config.route.stopSpacing,
+                    y1: config.route.lineY,
+                    x2: config.route.xStart + (index + 1) * config.route.stopSpacing,
+                    y2: config.route.lineY,
+                });
+                if (config.route.showTravelTime && stops[index].toNext) {
+                    const midpoint = config.route.xStart + (index + 0.5) * config.route.stopSpacing;
+                    addSvgElement(svg, "text", {
+                        class: "train-route__duration",
+                        x: midpoint,
+                        y: config.route.lineY - 12,
+                    }, stops[index].toNext);
+                }
+            }
+        }
 
-      stops.forEach((stop, index) => {
-        const rowY = config.legend.top + config.legend.titleHeight
-          + config.legend.rowHeight * index;
-        addSvgElement(svg, "circle", {
-          class: "train-route__legend-dot",
-          cx: legendX + 3,
-          cy: rowY - 3,
-          r: 3,
-        });
-        const item = addSvgElement(svg, "text", {
-          class: "train-route__legend-item",
-          x: legendX + 12,
-          y: rowY,
-        }, stop.name);
-        addSvgElement(item, "tspan", {
-          class: "train-route__legend-location",
-          x: legendX + 12,
-          dy: 12,
-        }, stop.location || "Location not specified");
-      });
-    }
+        function renderCurrentArrow(svg, currentIndex) {
+            if (currentIndex === 0) return;
 
-    function renderRoute() {
-      const container = document.currentScript.previousElementSibling;
-      if (!container || !isValidRoute(route)) return;
+            const arrowX = config.route.xStart + currentIndex * config.route.stopSpacing - config.route.stopSpacing / 2;
+            addSvgElement(svg, "polyline", {
+                class: "train-route__arrow train-route__arrow--active",
+                points: `${arrowX - 6},${config.route.lineY - 6} ${arrowX + 6},${config.route.lineY} ${arrowX - 6},${config.route.lineY + 6}`,
+            });
+        }
 
-      const rawCurrentIndex = Number.isInteger(route.currentStopIndex) ? route.currentStopIndex : 0;
-      const currentIndex = Math.min(Math.max(rawCurrentIndex, 0), route.stops.length - 1);
-      const svg = createSvg(route.stops);
+        function renderStops(svg, stops, currentIndex) {
+            return stops.map((stop, index) => {
+                const x = config.route.xStart + index * config.route.stopSpacing;
+                const isCurrent = index === currentIndex;
+                const classes = ["train-route__dot"];
+                if (index < currentIndex) classes.push("train-route__dot--completed");
+                if (isCurrent) {
+                    classes.push("train-route__dot--current");
+                    addSvgElement(svg, "circle", {
+                        class: "train-route__pulse",
+                        cx: x,
+                        cy: config.route.lineY,
+                        r: 20,
+                    });
+                }
 
-      renderSegments(svg, route.stops);
-      renderCurrentArrow(svg, currentIndex);
-      const accessibleStops = renderStops(svg, route.stops, currentIndex);
-      renderLegend(svg, route.stops);
+                addSvgElement(svg, "circle", {
+                    class: classes.join(" "),
+                    cx: x,
+                    cy: config.route.lineY,
+                    r: 8,
+                });
+                if (config.stops.showTime) {
+                    addSvgElement(svg, "text", {
+                        class: "train-route__time",
+                        x,
+                        y: config.route.lineY - 16,
+                    }, stop.time);
+                }
 
-      container.setAttribute("aria-label", `Train route: ${accessibleStops.join(", ")}`);
-      container.replaceChildren(svg);
-    }
+                const textX = x - 5;
+                const textY = config.route.lineY + 28;
+                const nameClasses = ["train-route__name"];
+                if (isCurrent) nameClasses.push("train-route__name--current");
+                addSvgElement(svg, "text", {
+                    class: nameClasses.join(" "),
+                    x: textX,
+                    y: textY,
+                    transform: `rotate(${config.stops.rotation} ${textX} ${textY})`,
+                }, stop.name);
 
-    renderRoute();
-  })();
+                const location = stop.location || "Location not specified";
+                return `${stop.name} at ${stop.time}, ${location}${isCurrent ? " (current stop)" : ""}`;
+            });
+        }
+
+        function renderDetails(stops, currentIndex) {
+            const panel = document.createElement("section");
+            panel.className = "train-route__details";
+
+            const title = document.createElement("h2");
+            title.className = "train-route__details-title";
+            title.textContent = "Details";
+            panel.appendChild(title);
+
+            const list = document.createElement("ul");
+            list.className = "train-route__details-list";
+            stops.forEach((stop, index) => {
+                const item = document.createElement("li");
+                item.className = "train-route__details-item";
+
+                const dot = document.createElement("span");
+                dot.className = "train-route__details-dot";
+                if (index === currentIndex) dot.classList.add("train-route__details-dot--current");
+                item.appendChild(dot);
+
+                const text = document.createElement("span");
+                const name = document.createElement("strong");
+                name.textContent = stop.name;
+                text.appendChild(name);
+
+                const location = document.createElement("span");
+                location.className = "train-route__details-location";
+                location.textContent = stop.location || "Location not specified";
+                text.appendChild(location);
+                item.appendChild(text);
+                list.appendChild(item);
+            });
+            panel.appendChild(list);
+            return panel;
+        }
+
+        function renderRoute() {
+            const container = document.currentScript.previousElementSibling;
+            if (!container || !isValidRoute(route)) return;
+
+            const rawCurrentIndex = Number.isInteger(route.currentStopIndex) ? route.currentStopIndex : 0;
+            const currentIndex = Math.min(Math.max(rawCurrentIndex, 0), route.stops.length - 1);
+            const svg = createSvg(route.stops);
+            const layout = document.createElement("div");
+            layout.className = "train-route__layout";
+            const mapScroll = document.createElement("div");
+            mapScroll.className = "train-route__map-scroll";
+
+            renderSegments(svg, route.stops);
+            renderCurrentArrow(svg, currentIndex);
+            const accessibleStops = renderStops(svg, route.stops, currentIndex);
+            mapScroll.appendChild(svg);
+            layout.append(mapScroll, renderDetails(route.stops, currentIndex));
+
+            container.setAttribute("aria-label", `Train route: ${accessibleStops.join(", ")}`);
+            container.replaceChildren(layout);
+        }
+
+        renderRoute();
+    })();
 </script>
